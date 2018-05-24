@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('../components/header') %>
+<body>
+<div class="contain">
+    <!--<div id="header"></div>-->
+    <div class="topbox">
+        <div class="topmid">
+            <div class="topleft">
+                <a href="/index"><span class="toplogo"></span></a>购课成功 </div>
+            <span class="topRphone">服务热线：010-84997885</span>
+        </div>
+    </div>
+
+    <div class="logminbg">
+        <div class="buyok">
+            <h1><img src="../../assets/buyok@2x.png">购课成功</h1>
+            <p><span>1.尽快下载上课软件【狸米课堂】</span>
+                <a href="/question">如何在电脑、IPad上下载狸米课堂软件？</a>
+            </p>
+            <p><span>2.使用以下账号登录</span>
+                <a href="/qustionpwd">为什么密码是三个生肖图案？</a>
+            </p>
+            <p>
+                <i>手机号：</i><b id="userPhone" class="bmid"></b>
+                <i>图案密码：</i>
+                <b id="userPwd">
+                </b>
+                <b class="pwdword"></b>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<%- include('../components/footer') %>
+<script>
+    $(function() {
+        var userName = localStorage.getItem("userName")
+        var userPwd = localStorage.getItem("userPwd")
+//				var userName = "13522615977"
+//				var userPwd = "马马马"
+        var pwdHtml = ""
+        for(var i = 0; i < userPwd.length; i++) {
+            switch(userPwd[i]) {
+                case "鼠":
+                    pwdHtml += "<img src='../../assets/zodiac/shu.png' />"
+                    break;
+                case "牛":
+                    pwdHtml += "<img src='../../assets/zodiac/niu.png'/>"
+                    break;
+                case "虎":
+                    pwdHtml += "<img src='../../assets/zodiac/hu.png'/>"
+                    break;
+                case "兔":
+                    pwdHtml += "<img src='../../assets/zodiac/tu.png'/>"
+                    break;
+                case "龙":
+                    pwdHtml += "<img src='../../assets/zodiac/long.png '/>"
+                    break;
+                case "蛇":
+                    pwdHtml += "<img src='../../assets/zodiac/she.png '/>"
+                    break;
+                case "马":
+                    pwdHtml += "<img src='../../assets/zodiac/ma.png '/>"
+                    break;
+                case "羊":
+                    pwdHtml += "<img src='../../assets/zodiac/yang.png '/>"
+                    break;
+                case "猴":
+                    pwdHtml += "<img src='../../assets/zodiac/hou.png '/>"
+                    break;
+                case "鸡":
+                    pwdHtml += "<img src='../../assets/zodiac/ji.png '/>"
+                    break;
+                case "狗":
+                    pwdHtml += "<img src='../../assets/zodiac/gou.png '/>"
+                    break;
+                case "猪":
+                    pwdHtml += "<img src='../../assets/zodiac/zhu.png '/>"
+                    break;
+            }
+        }
+        $("#userPhone").html(userName)
+        $("#userPwd").html(pwdHtml)
+        $(".pwdword").html("("+userPwd+")")
+    })
+</script>
+</body>
+</html>

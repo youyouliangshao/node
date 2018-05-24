@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('./components/header') %>
+<style>
+    .classLi{
+        float: left;
+        width: 33%;
+    }
+    .de_libot {
+        margin: 0 auto;
+    }
+    .de_liname {
+        padding-left: 16px;
+    }
+</style>
+<body>
+<%- include('./components/body-header') %>
+<div class="de_banner">
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="de_bannermid">
+                    <div class="de_bannerbox">
+                        <p class="bann_p3">
+                            <a href="/class" class="bg2">培优课程介绍 </a>
+                            <a href="/train" class="bg2">智能训练介绍 </a>
+                        </p>
+                        <div class="userinput">
+                            <input id="yuyue-phone" class="yuyue-phone" type="text" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/,'');}).call(this)" maxlength="11" placeholder="请填写您的手机号">
+                            <a id="yuyue-btn" class="yuyue-btn" href="javascript:;">预约体验课</a>
+                        </div>
+                    </div>
+                </div>
+                <img src="../assets/banner_girl@1x.jpg">
+            </div>
+            <div class="swiper-slide">
+                <!--<img src="static/assets/bannerindex.jpg">-->
+                <a href="/class/guide"><img src="../assets/bannerbg2.jpg"></a>
+            </div>
+
+        </div>
+    </div>
+    <div class="pagination"></div>
+</div>
+<!--banner animate-->
+<!-- Initialize Swiper -->
+<div class="de_main">
+    <div class="de_gradecheck">
+        <p>选择年级：</p>
+        <ul class="graul">
+            <li class="titactive" data-id='0'>全部年级</li>
+
+            <li data-id='1'>二年级</li>
+            <li data-id='2'>三年级</li>
+            <li data-id='3'>四年级</li>
+            <li data-id='4'>五年级</li>
+            <li data-id='4'>六年级</li>
+            <li data-id='4'>七年级</li>
+        </ul>
+    </div>
+    <div class="de_gradeclassbox">
+        <div class="de_gradeword">
+            <div class="de_gradetit">狸米数学培优课程</div>
+            <ul class="" data-paroller-factor="0.3" data-paroller-type="foreground">
+                <% if (classList && classList.length>0){ %>
+                <% classList.forEach(function (entry){ %>
+                <li class="classLi">
+                    <a href="/class/classnav?grade=<%= entry.grade %>">
+                        <div class="de_liname"><span><%= entry.grade_name %>年级</span><%= entry.class_year+entry.class_season_name %>直播课</div>
+                        <div class="de_libot">
+                            <div class="de_liword"><p class="de_lip1"><span><%= entry.class_season_name %></span></p>
+                                <p class="de_lip2">¥<%= entry.price %></p>
+                                <p class="de_lip3"><%= entry.first_class_time+'-'+entry.first_class_time %></p></div>
+                            <div class="de_limask"></div>
+                            <img src="<%= entry.bg_img_url %>">
+                        </div>
+                    </a>
+                </li>
+                <% }); %>
+                <% } %>
+            </ul>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="de_kctsbox">
+        <div class="de_kctsimg"><img src="/assets/icon_feature.png"></div>
+        <div class="de_kctsname">狸米数学培优课程特色</div>
+        <ul class="de_kctsul">
+            <li class="de_ks1">
+                <h1>生动有趣的课堂教学</h1>
+                <div>
+                    <h2>生动有趣的课堂教学</h2>
+                    <p>互联网在线互动授课</p>
+                    <p>孩子学习兴趣大幅提升</p>
+                </div>
+            </li>
+            <li class="de_ks2">
+                <h1>清北名师授课</h1>
+                <div>
+                    <h2>清北名师授课</h2>
+                    <p>多年在线教学经验</p>
+                    <p>专注教学以及考点研究</p>
+                </div>
+            </li>
+            <li class="de_ks3">
+                <h1>班主任全程陪伴</h1>
+                <div>
+                    <h2>班主任全程陪伴</h2>
+                    <p>责任感爆棚的班主任在线答疑</p>
+                    <p>解决课后学习痛点</p>
+                </div>
+            </li>
+            <li class="de_ks4">
+                <h1>专业教学内容研发</h1>
+                <div>
+                    <h2>专业教学内容研发</h2>
+                    <p>985/211高校毕业</p>
+                    <p>多年教学研究经验</p>
+                </div>
+            </li>
+            <li class="de_ks5">
+                <h1>减负增效省时省心</h1>
+                <div>
+                    <h2>减负增效省时省心</h2>
+                    <p>家长不用辛苦接送孩子</p>
+                    <p>学费便宜节省经济成本</p>
+                </div>
+            </li>
+            <li class="de_ks6">
+                <h1>随时随地便捷上课</h1>
+                <div>
+                    <h2>随时随地便捷上课</h2>
+                    <p>多终端学习平台覆盖</p>
+                    <p>免除线下机构路途奔波</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="de_video">
+        <img src="/assets/icon_video@1x.jpg">
+    </div>
+    <div class="de_jybox">
+        <div class="de_jyname">与教育部数学教育技术应用与创新研究中心联合教研</div>
+        <div class="de_jyimg de_jyimg1"><img src="/assets/photo_.png"></div>
+    </div>
+    <div class="de_mask"></div>
+    <div class="devideobox">
+        <div class="de_close"><img src="/assets/video_close.png"></div>
+        <video class="de_v" controls src="/assets/kfmp.mp4" width="850" height="416">您的浏览器不支持 video 标签。</video>
+    </div>
+    <div class="de_jzbox">
+        <div class="de_jzname">家长和学员反馈</div>
+        <ul class="de_jzul de_jzul1">
+            <li>
+                <img src="/assets/01.png">
+                <div class="de_jzna">
+                    马纯然妈妈
+                    <h6>上海市嘉定区</h6>
+                </div>
+                <p>学习积极性提高了，每周到点孩子都会迫不及待的打开狸米，有时候做了习题还会和我炫耀：妈妈你知道吗，这个题标准答案其实只写出3种算法，老师夸我能找到第四种。</p>
+            </li>
+            <li>
+                <img src="/assets/03.png">
+                <div class="de_jzna">
+                    张铭伟妈妈
+                    <h6>山西大同市</h6>
+                </div>
+                <p>不愧是清华北大毕业的名师，老师水平高，刚给儿子辅导两次课，就把儿子的学习情况和状态摸清楚了，给儿子制定了专门的学习计划，目前效果还不错。</p>
+            </li>
+            <li>
+                <img src="/assets/7_pic5.png">
+                <div class="de_jzna">
+                    李敬轩
+                    <h6>北京朝阳区五年级</h6>
+                </div>
+                <p>王老师，我有个好消息，我这次数学期中考了100分～(￣▽￣～)(～￣▽￣)～全班只有我1个100。我爸已经同意带我去迪士尼啦，我还想报你的秋季班。 </p>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <%- include('./components/footer') %>
+</div>
+<script>
+    $(document).ready(function() {
+        var userPhoneNum;
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: '.pagination',
+            //					loop: true,
+//					grabCursor: true,
+            paginationClickable: true,
+            //					autoplay: 5000,
+//					observer: true,
+//					momentumBounceRatio:0.5;
+            autoplay:10000,
+            speed:1400,
+            loop:true,
+            autoplayDisableOnInteraction: false,
+            onSlideChangeStart: function(swiper) {
+                if(swiper.activeIndex % 2 != 0) {
+
+                    $(".de_nav").removeClass("navhei").addClass("navwhite")
+                    $(".bann_p3").children("a").addClass("bg2").removeClass("bg1");
+                    $(".bann_p1").removeClass("bcolor2");
+                }else{
+
+                    $(".de_nav").removeClass("navwhite").addClass("navhei")
+//							$(".bann_p3").children("a").removeClass("bg2").addClass("bg1");
+
+                    $(".bann_p1").addClass("bcolor2");
+                }
+            }
+
+        })
+        //为loop模式做兼容
+        var userPhoneNum;
+        $(".yuyue-phone").eq(0).on('focus',function  () {
+            mySwiper.stopAutoplay();
+        })
+        $(".yuyue-phone").eq(0).on('blur',function  () {
+//					userPhoneNum = $("#yuyue-phone").eq(0).val();
+//					$("#yuyue-phone").eq(1).val(userPhoneNum);
+            userPhoneNum = $(".yuyue-phone").eq(0).val();
+            $(".yuyue-phone").eq(0).val(userPhoneNum);
+            $(".yuyue-phone").eq(1).val(userPhoneNum);
+            if($(".yuyue-phone").eq(0).val() == ""){
+                mySwiper.startAutoplay();
+            }
+
+
+        })
+
+        $(".yuyue-phone").eq(1).on('focus',function  () {
+            mySwiper.stopAutoplay();
+        })
+
+        $(".yuyue-phone").eq(1).on('blur',function  () {
+
+//					userPhoneNum = $("#yuyue-phone").eq(1).val();
+//					$("#yuyue-phone").eq(0).val(userPhoneNum);
+            userPhoneNum = $(".yuyue-phone").eq(1).val();
+            $(".yuyue-phone").eq(0).val(userPhoneNum);
+            $(".yuyue-phone").eq(1).val(userPhoneNum);
+            if($(".yuyue-phone").eq(1).val() == ""){
+                mySwiper.startAutoplay();
+            }
+
+        })
+
+        $(".yuyue-btn").on("click", function() {
+            var e = /^1[3|4|5|7|8|9][0-9]{9}$/,
+                a = $(".yuyue-phone").eq(0).val();
+            if(e.test(a)) {
+                window.sessionStorage.setItem("jzphone", $(".yuyue-phone").eq(0).val());
+                window.location.href = "/class/appointment";
+                $(".yuyue-phone").eq(0).val('请填写您的手机号');
+            } else {
+                alert("您的手机号码输入有误，请重新输入!");
+            }
+        });
+    })
+</script>
+<script>
+    $(document).ready(function() {
+        $(window).paroller();
+        var baheight = $(".de_banner .swiper-slide img").height();
+        $(".de_main").css("top", baheight)
+        $(".de_bannermid").css("top", baheight / 2)
+        $(".pagination").css("top", baheight - 140)
+
+
+        //改变窗口执行
+        $(window).resize(function() {
+            var baheight = $(".de_banner .swiper-slide img").height();
+            $(".de_main").css("top", baheight)
+            $(".de_bannermid").css("top", baheight / 2)
+            $(".pagination").css("top", baheight - 140)
+            videwh();
+        });
+        $(window).scroll(function() {
+            denavbg();
+            var scroll_top = $(document).scrollTop();
+            if(scroll_top >= 0) {
+                if(scroll_top >= 50) {
+                    $(".userinput").css("right", -scroll_top + "px")
+                    $(".livechat-girl").css("right", "40px")
+                } else {
+                    $(".userinput").css("right", 0)
+                    $(".livechat-girl").css("right", "-200px")
+                }
+                if(scroll_top > baheight * 2) {
+                    $(".de_banner").css("visibility", "hidden")
+                } else {
+                    $(".de_banner").css("visibility", "visible")
+                }
+            }
+        });
+        //导航背景色变换
+        function denavbg() {
+            var baheight = $(".de_banner .swiper-slide img").height();
+            var scroll_top = $(document).scrollTop();
+
+            if(scroll_top >= baheight / 3) {
+                $(".de_nav").addClass("navgreen")
+            } else {
+                $(".de_nav").removeClass("navgreen")
+            }
+        }
+        //视频显示
+        function videwh() {
+            var _windowHeight = $(window).height(); //获取当前窗口高度
+            var _windowWidth = $(window).width(); //获取当前窗口宽度
+            var _popupHeight = $(".devideobox").height(); //获取弹出层高度
+            var _popupWeight = $(".devideobox").width(); //获取弹出层宽度
+            var _posiTop = (_windowHeight - _popupHeight) / 2;
+            var _posiLeft = (_windowWidth - _popupWeight) / 2;
+            $(".devideobox").css({
+                "left": _posiLeft + "px",
+                "top": _posiTop + "px",
+            })
+            $(".de_video").click(function() {
+                $(".de_mask").show()
+                $(".devideobox").css({
+                    "left": _posiLeft + "px",
+                    "top": _posiTop + "px",
+                    "display": "block"
+                }); //设置position
+                $("body").css('overflow', 'hidden');
+                $('.de_v').trigger('play');
+            })
+        }
+        videwh();
+        $(".de_close").click(function() {
+            $('.de_v').trigger('pause');
+            $(".de_mask").hide()
+            $(".devideobox").hide()
+            $("body").css('overflow', 'scroll');
+        })
+    })
+    //客服
+    $(document).ready(function() {
+        $(".zhiCustomBtn").on("click", function() {
+            if($(".kfbox").hasClass("kfshow")) {
+                $(".kfbox").removeClass("kfshow").addClass("kfhide")
+                $("#ZCChatFrame").removeClass("kfshow").addClass("kfhide")
+            } else {
+                $(".kfbox").addClass("kfshow").removeClass("kfhide")
+                $("#ZCChatFrame").addClass("kfshow").removeClass("kfhide")
+            }
+        })
+        $('.kfclose').click(function() {
+            $(".kfbox").removeClass("kfshow").addClass("kfhide")
+            $("#ZCChatFrame").removeClass("kfshow").addClass("kfhide")
+        });
+
+        setInterval(function() {
+            if($(".animated-circles").hasClass("animated")) {
+                $(".animated-circles").removeClass("animated");
+            } else {
+                $(".animated-circles").addClass('animated');
+            }
+        }, 3000);
+        var wait = setInterval(function() {
+            $(".livechat-hint").removeClass("show_hint").addClass("hide_hint");
+            clearInterval(wait);
+        }, 4500);
+        $(".livechat-girl").hover(function() {
+            clearInterval(wait);
+            $(".livechat-hint").removeClass("hide_hint").addClass("show_hint");
+        }, function() {
+            $(".livechat-hint").removeClass("show_hint").addClass("hide_hint");
+        })
+    })
+    //数据显示
+    $(window).load(function() {
+        $(".graul li").click(function() {
+            var index = $(this).index()
+            $(this).addClass("titactive").siblings("li").removeClass("titactive");
+            $('.de_onegradul li').hide()
+            $('.de_onegradul li').eq(index - 1).show()
+            if(index == 0) {
+                $('.de_onegradul li').hide()
+                $('.de_onegradul li').show()
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

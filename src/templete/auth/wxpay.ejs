@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('../components/header') %>
+<body>
+<div class="contain">
+    <div class="topbox">
+        <div class="topmid">
+            <div class="topleft">
+                <a href="/index"><span class="toplogo"></span></a>扫码付款 </div>
+            <span class="topRphone">服务热线：010-84997885</span>
+        </div>
+    </div>
+    <!--<div id="header"></div>-->
+    <div class="classnavbg logminbg">
+        <div class="ordtoptwo">
+            请及时付款，未付款的订单将在 <b id="time">14:59</b>后取消
+        </div>
+        <div class="logincoment">
+            <div class="orderbox">
+
+                <div class="ordbot wxbot">
+                    <div class="ordleft">
+                        <span id="lastmoney"></span>
+                        <h6>手机微信扫一扫付款（元）</h6>
+                        <img src="" alt="" />
+                    </div>
+                    <p>
+                        <a href="javascript:;" id="elseMethod">选择其他支付方式</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<%- include('../components/footer') %>
+<script>
+    $(function() {
+        var m = '';
+        var s = '';
+        var timeNum  ;
+        var ntimeNum ;
+        var orderId = GetQueryString("order_id")
+        var payMethod = GetQueryString("payMethod")
+        var money = GetQueryString("money")
+        var cook = GetQueryString("cook")
+        $("#lastmoney").html("¥" + money)
+        var selectTime = {
+            order_id:orderId
+        }
+        ajax("http://order.limiketang.com/limi-math-web-v3/get-service-time", selectTime, "GET").done(function(res) {
+
+            if(res.data) {
+                timeNum = parseInt( res.data.order_time);
+                ntimeNum = parseInt(res.data.service_time);
+
+                var num1 = 15 * 60;
+                var ctimeNum = timeNum - ntimeNum + num1;
+                m = parseInt(ctimeNum / 60);
+                s = ctimeNum - m * 60;
+
+                var timer = setInterval(function() {
+                    if(m == 0 && s == 0) {
+                        clearInterval(timer)
+                        alert("您的订单已过期，请您返回重新下单")
+                    }
+                    if(m < 0) {
+                        m = 0;
+                        s = 0;
+                        $('#time').html(m + ':0' + s);
+                        clearInterval(timer)
+                        alert("您的订单已过期，请您返回重新下单")
+                    }
+                    if(s < 10) {
+                        $('#time').html(m + ':0' + s);
+                    } else {
+                        $('#time').html(m + ':' + s);
+                    }
+                    s--;
+                    if(s < 0) {
+                        s = 59;
+                        m--;
+                    }
+                }, 1000)
+
+            }else{
+                alert(res.desc)
+
+            }
+        }).fail(function(err) {
+            alert("网络错误")
+            return false
+        });
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r != null) return unescape(r[2]);
+            return null;
+        }
+//				var orderId = GetQueryString("order_id")
+//				var cook = GetQueryString("cook")
+//				var payMethod = GetQueryString("payMethod")
+//				var money = GetQueryString("money")
+//				$("#lastmoney").html("¥" + money)
+        var orderNo;
+        var smallId = 0;
+        var paydata = {
+            order_id: orderId,
+            cook: cook,
+            pay_type: payMethod
+        }
+        ajax("http://order.limiketang.com/limi-math-web-v3/pay-add", paydata, "GET").done(function(res) {
+            if(res.result == 1) {
+                $(".wxbot img").attr("src", res.data.qr_code)
+                orderNo = res.data.order_no
+                checkPay()
+            } else {
+                alert(res.desc)
+                if(res.desc == "该订单已支付"){
+                    checkPay()
+                }
+            }
+        }).fail(function(err) {
+            alert("网络错误")
+            return false
+        });
+
+        var ajaxTime; //定时器  3S
+        function getPayInfo() {
+            var selectdata = {
+                cook: cook,
+                order_id: orderId,
+                order_no : orderNo
+            }
+            ajax("http://order.limiketang.com/limi-math-web-v3/pay-select", selectdata, "GET").done(function(res) {
+                if(res.result){
+                    if(res.data.username) {
+                        location.href = "/auth/pay/finish"
+                        localStorage.setItem("userName", res.data.username)
+                        localStorage.setItem("userPwd", res.data.pwd)
+                        clearInterval(ajaxTime)
+                    }
+                }else{
+                    alert(res.desc)
+                }
+            }).fail(function(err) {
+                alert("网络错误")
+                return false
+            });
+        }
+
+        function checkPay() {
+            getPayInfo()
+            ajaxTime = setInterval(function() {
+                getPayInfo()
+            }, 3000)
+        }
+        $("#elseMethod").on("click", function() {
+            location.href = "/auth/pay/step2?money=" + money + "&order_id=" + orderId + "&cook=" + cook + "&timeNum=" + timeNum
+        })
+    })
+</script>
+</body>
+</html>

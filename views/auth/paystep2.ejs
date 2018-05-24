@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('../components/header') %>
+<body>
+<div class="contain">
+    <div class="topbox">
+        <div class="topmid">
+            <div class="topleft">
+                <a href="/index"><span class="toplogo"></span></a>选择支付方式 </div>
+            <span class="topRphone">服务热线：010-84997885</span>
+        </div>
+    </div>
+    <!--<div id="header"></div>-->
+    <div class="classnavbg logminbg">
+        <div class="logincoment">
+            <div class="orderbox">
+
+                <!--<div class="ordtop">
+                    选择支付方式
+                </div>-->
+                <div class="ordlione marr16">
+                    <input type="radio" checked="checked" id="radio2" name="orderff" class="orderradio">
+                    <label for="radio2" id="label2">
+                        <img class="radioimg" src="../../assets/pay_checked@2x.png" alt="">
+                        <div class="payicon">
+                            <img src="../../assets/pay_wechat@2x.png">微信支付
+                        </div>
+                    </label>
+                </div>
+                <div class="ordlione">
+                    <input type="radio" id="radio1" name="orderff" class="orderradio">
+                    <label for="radio1" id="label1">
+                        <img class="radioimg" src="" alt="">
+                        <div class="payicon">
+                            <img src="../../assets/pay_ali@2x.png">支付宝
+                        </div>
+                    </label>
+                </div>
+
+                <p class="ord_sy">
+                    实付：<span id="lastMoney"></span> 元
+                    <a href="javascript:;" class="grade_bm ordbtn">去付款</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="blackbg">
+        <div class="show_box">
+            <p>完善用户信息</p>
+            <input type="text" id="ordername" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" class="ordername" value="" maxlength="18" placeholder="请输入学生的姓名" />
+            <button class="sub_ordername">确  定</button>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<%- include('../components/footer') %>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return unescape(r[2]);
+        return null;
+    }
+    var goods_id = GetQueryString("goods_id")
+    var cook = GetQueryString("cook")
+    var timeNum = GetQueryString("timeNum")
+    var orderId = GetQueryString("order_id")
+
+    var money = GetQueryString("money")
+    //			var uid = GetQueryString("uid")
+    $("#label1").on("click", function() {
+        $("#radio1").attr("checked", "checked");
+        $("#radio2").removeAttr("checked");
+        $("#label2").children(".radioimg").hide();
+        $(this).children(".radioimg").attr("src", "../../assets/pay_checked@2x.png").show()
+    })
+    $("#label2").on("click", function() {
+        $("#radio1").removeAttr("checked");
+        $("#radio2").attr("checked", "checked")
+        $("#label1").children(".radioimg").hide()
+        $(this).children(".radioimg").attr("src", "../../assets/pay_checked@2x.png").show()
+    })
+    $("#lastMoney").html("¥" + money)
+    $(".grade_bm").on("click", function() {
+        var alicheck = $("#radio1").attr("checked");
+        var wxcheck = $("#radio2").attr("checked");
+        var pay_type = "wx_pub_qr";
+        if(wxcheck || alicheck) {
+            if(wxcheck == "checked") {
+                pay_type = "wx_pub_qr";
+                location.href = "/auth/pay/step3?order_id=" + orderId + "&payMethod=" + pay_type + "&money=" + money + "&cook=" + cook + "&timeNum=" + timeNum
+            } else {
+                pay_type = "alipay_qr";
+                location.href = "/auth/pay/step4?order_id=" + orderId + "&payMethod=" + pay_type + "&money=" + money + "&cook=" + cook + "&timeNum=" + timeNum
+            }
+        }
+    })
+    //判断是否报过课
+    //			function checkbao() {
+    //				$.ajax({
+    //					url: "http://order.limiketang.com/limi-math-web/user-in-class",
+    //					type: "get",
+    //					headers: {
+    //						"ua-limi": "livevideo-student"
+    //					},
+    //					dataType: "jsonp",
+    //					data: {
+    //						class_id: bigcid,
+    //						uid: uid,
+    //					},
+    //					success: function(e) {
+    //						//                      	console.log(data)
+    //						console.log(e)
+    //						if(e.result == 0) {
+    //							alert("您已报过春季课程，无法再报，请谅解！")
+    //							window.history.back(-1);
+    //						}
+    //					},
+    //					error: function() {
+    //						return alert("网络错误");
+    //					}
+    //				})
+    //			}
+    //			checkbao();
+</script>
+</body>
+</html>

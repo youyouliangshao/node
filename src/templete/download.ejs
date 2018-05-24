@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('./components/header') %>
+<body>
+<%- include('./components/body-header') %>
+<div class="down_box">
+    <div class="down_mid">
+        <ul class="down_left">
+            <li class="doli1 active-li">狸米课堂</li>
+            <li class="doli2">狸米学习</li>
+            <li class="doli3">狸米老师</li>
+        </ul>
+        <div class="down_right">
+            <div class="downRli down_Rone">
+                <div class="down_Rtop">
+                    <p class="down_Rp1">狸米课堂</p>
+                    <p class="down_Rp2"><span>学生用</span></p>
+                    <p class="down_Rp3">为学生提供的在线上课软件，可应用于Windows电脑和苹果<br />iPad</p>
+                </div>
+                <div class="down_Rbot">
+                    <a target="_blank" href="https://itunes.apple.com/cn/app/%E7%8B%B8%E7%B1%B3%E8%AF%BE%E5%A0%82/id1249240142?l=cn&mt=8" class="down_btn">苹果iPad版</a>
+                    <a href="http://limi-live-video.oss-cn-shanghai.aliyuncs.com/pkg/pc/LimiKeTangInstaller.exe" class="down_btn">Windows 电脑版</a>
+                </div>
+            </div>
+            <div class="downRli down_Rtwo">
+                <div class="down_Rtop">
+                    <p class="down_Rp1">狸米学习</p>
+                    <p class="down_Rp2"><span>学生用</span></p>
+                    <p class="down_Rp3">配套课内教材内容的智能训练与辅导软件，可应用于Windows<br />电脑、苹果iPad、苹果iPhone手机和其他智能手机</p>
+                </div>
+                <div class="down_Rbot">
+                    <a href="https://itunes.apple.com/cn/app/li-mi-xue-xi-yuan-ming-fu/id881347220?mt=8" target="_blank" class="down_btn">苹果iPad版</a>
+                    <a target="_blank" href="http://zmp-app.oss-cn-beijing.aliyuncs.com/fudaodashi/limixuexi/bigscreen/1.9/limiStudy-1.9.3.exe" class="down_btn">Windows 电脑版</a>
+                    <a href="javascript:;" class="down_btn" onclick='downloadApp("student","android")'>其他智能手机版</a>
+                    <a href="javascript:;" class="down_btn" onclick='downloadApp("student","iphone")'>苹果iPhone手机版</a>
+                </div>
+            </div>
+            <div class="downRli down_Rthree">
+                <div class="down_Rtop">
+                    <p class="down_Rp1">狸米老师</p>
+                    <p class="down_Rp2"><span>教师用</span></p>
+                    <p class="down_Rp3">为校内老师提供的用于布置作业与查看学情的手机软件，可应用<br />于苹果iPhone手机和其他智能手机</p>
+                </div>
+                <div class="down_Rbot">
+                    <a href="javascript:;" class="down_btn" onclick='downloadApp("teacher","iphone")'>苹果iPhone手机版</a>
+                    <a href="javascript:;" class="down_btn" onclick='downloadApp("teacher","android")'>其他智能手机版</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="de_mask"></div>
+<div class="alert">
+    <em class="close" onclick="alertHide()"></em>
+    <h2></h2>
+    <img src="" alt="" />
+</div>
+<%- include('./components/footer') %>
+<script type="text/javascript">
+    $(".down_left li").on('click', function() {
+        var ind = $(this).index();
+        $(this).addClass('active-li').siblings().removeClass('active-li');
+        $(".downRli").eq(ind).show().siblings().hide();
+    })
+
+    var r = window.location.search;
+    r = r.substring(r.indexOf("?"), r.length - 1);
+    if(r) {
+        $(".down_left li").eq(1).click();
+    }
+
+    function downloadApp(type, people) {
+        //				console.log(type);
+        //				console.log(people);
+        $(".alert h2").html(type + ',' + people);
+        if(type == "student" && people == "android") {
+            $(".alert h2").html("扫描二维码下载狸米学习其他智能手机版");
+            $(".alert img").attr('src', '../assets/lmxx_ewm.jpg');
+        }
+        if(type == "student" && people == "iphone") {
+            $(".alert h2").html("扫描二维码下载狸米学习苹果iPhone手机版");
+            $(".alert img").attr('src', '../assets/lmxx_ewm.jpg');
+        }
+        if(type == "teacher" && people == "android") {
+            $(".alert h2").html("扫描二维码下载狸米老师其他智能手机版");
+            $(".alert img").attr('src', '../assets/lmls_ewm.jpg');
+        }
+        if(type == "teacher" && people == "iphone") {
+            $(".alert h2").html("扫描二维码下载狸米老师苹果iPhone手机版");
+            $(".alert img").attr('src', '../assets/lmls_ewm.jpg');
+        }
+        $(".alert").show();
+        $(".de_mask").show();
+    }
+
+    function alertHide() {
+        $(".alert").hide();
+        $(".de_mask").hide();
+    }
+</script>
+</body>
+</html>

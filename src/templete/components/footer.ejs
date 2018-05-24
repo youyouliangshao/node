@@ -1,0 +1,83 @@
+<div class="footer">
+    <div class="botnav">
+        <span>服务热线：010-84997885 ( 9:00-21:00 )</span>
+        <a href="/about">关于我们</a>
+        <a href="/agreement">用户协议</a>
+        <a href="/contact">联系方式</a>
+    </div>
+    <div class="botp">
+        <p> 联系电话：010-84923607 &nbsp; &nbsp; 公司地址：北京市朝阳区来广营红军营南路甲3号NET大厦6层 <br /> Copyright © 2016 北京芝麻派科技有限公司 &nbsp; &nbsp; 京ICP备14028741号-6 &nbsp; &nbsp;
+            <a href="javascript:;"><img src="../../assets/beian.png" alt=""> 京公网安备 11010502033665号</a>
+        </p>
+    </div>
+</div>
+<!--在线客服-->
+<!--<script src="https://www.sobot.com/chat/frame/js/entrance.js?sysNum=2093ee45662d4baa9eb9d33b3239e18d" class="zhiCustomBtn" id="zhichiScript" data-args="manual=true"></script>-->
+<div id="btn" class="zhiCustomBtn livechat-girl animated"> <img class="girl" src="../../assets/en_3.png">
+    <div class="livechat-hint rd-notice-tooltip rd-notice-type-success rd-notice-position-left single-line show_hint">
+        <div class="rd-notice-content">在线客服</div>
+    </div>
+    <div class="animated-circles">
+        <div class="circle c-1"></div>
+        <div class="circle c-2"></div>
+        <div class="circle c-3"></div>
+    </div>
+</div>
+<div class="kfbox kfhide">
+    <div class="kfclose"></div>
+    <iframe name="ZCChatFrame" id="ZCChatFrame" frameborder="0" class="ZCChatFrame kfhide" src="//www.sobot.com/chat/pc_new/index.html?sysNum=2093ee45662d4baa9eb9d33b3239e18d&amp;color=31c5b5&amp;cid=fc623944b86c4b7f9ca9e6df8a15a782&amp;lan=cn&amp;invite=false&amp;visitStartTime=1517541996769&amp;uid=ba692022cd744dbcb43bfc670001ff58&amp;from=iframe"></iframe>
+</div>
+<script type="text/javascript">
+    //客服
+    $(function() {
+        $(".zhiCustomBtn").on("click", function() {
+            if($(".kfbox").hasClass("kfshow")) {
+                $(".kfbox").removeClass("kfshow").addClass("kfhide")
+                $("#ZCChatFrame").removeClass("kfshow").addClass("kfhide")
+            } else {
+                $(".kfbox").addClass("kfshow").removeClass("kfhide")
+                $("#ZCChatFrame").addClass("kfshow").removeClass("kfhide")
+            }
+        })
+        $('.kfclose').click(function() {
+            $(".kfbox").removeClass("kfshow").addClass("kfhide")
+            $("#ZCChatFrame").removeClass("kfshow").addClass("kfhide")
+        });
+
+    })
+    setInterval(function() {
+        if($(".animated-circles").hasClass("animated")) {
+            $(".animated-circles").removeClass("animated");
+        } else {
+            $(".animated-circles").addClass('animated');
+        }
+    }, 3000);
+    var wait = setInterval(function() {
+        $(".livechat-hint").removeClass("show_hint").addClass("hide_hint");
+        clearInterval(wait);
+    }, 4500);
+    $(".livechat-girl").hover(function() {
+        clearInterval(wait);
+        $(".livechat-hint").removeClass("hide_hint").addClass("show_hint");
+    }, function() {
+        $(".livechat-hint").removeClass("show_hint").addClass("hide_hint");
+    })
+    //滚动事件
+    $(window).scroll(function() {
+        var scroll_top = $(document).scrollTop();
+        if(scroll_top >= 0) {
+            $(".livechat-girl").css("right", "40px")
+        } else {
+            $(".livechat-girl").css("right", "-200px")
+        }
+    });
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?392feb6b70c47efd1aed1c808d829c47";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('../components/header') %>
+<body>
+<div class="contain">
+    <%- include('../components/body-header') %>
+    <div class="classnavbg">
+        <div class="midcontent">
+
+            <ul class="cnavul">
+                <% if (navlist && navlist.length>0){ %>
+                <% navlist.forEach(function (entry){ %>
+                <li>
+                    <a href="/class/listdetail">
+                        <div class="clnavleft">
+                            <h2 class="clnavh2" ><%= entry.teacher_id %></h2>
+                            <div class="clnavtime"><span>每周五</span>19:00-19:45</div>
+                            <div class="clnavdate"><%= entry.teacher_id %></div>
+                            <div class="clnavtu">
+                                <div class="clnavtuone">
+                                    <img src="<%= entry.teacher_avatar_url %>">
+                                    <p class="clnavtp1"><%= entry.class_season_time %></p>
+                                    <p class="clnavtp2"><%= entry.teacher_id %></p>
+                                </div>
+                                <div class="clnavtuone">
+                                    <img src="<%= entry.teacher_avatar_url %>">
+                                    <p class="clnavtp1"><%= entry.class_season_time %></p>
+                                    <p class="clnavtp2"><%= entry.teacher_id %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clnavright">
+                            <p class="clnavrp1">距离课程停售还有2天</p>
+                            <div class="clnavbott"><span class="hot2">可插班</span></div>
+                            <p class="clnavRmoney">￥799</p>
+                            <div class="clnavnum">末开课，共15讲</div>
+                        </div>
+                    </a>
+                </li>
+                <% }); %>
+                <% } %>
+                <!--<li>
+                    <a href="listdetail.html?bigcid=2094&amp;smid=100">
+                        <div class="clnavleft">
+                            <h2 class="clnavh2" >2018二年级直播课程</h2>
+                            <div class="clnavtime"><span>每周五</span>19:00-19:45</div>
+                            <div class="clnavdate">03月09日-06月15日</div>
+                            <div class="clnavtu">
+                                <div class="clnavtuone">
+                                    <img src="../assets/01.png">
+                                    <p class="clnavtp1">授课教师</p>
+                                    <p class="clnavtp2">王晗</p>
+                                </div>
+                                <div class="clnavtuone">
+                                    <img src="../assets/02.png">
+                                    <p class="clnavtp1">授课教师</p>
+                                    <p class="clnavtp2">王晗</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clnavright">
+                            <p class="clnavrp1">距离课程停售还有2天</p>
+                            <div class="clnavbott"><span class="hot2">可插班</span></div>
+                            <p class="clnavRmoney">￥799</p>
+                            <div class="clnavnum">末开课，共15讲</div>
+                        </div>
+                    </a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<%- include('../components/footer') %>
+</body>
+</html>

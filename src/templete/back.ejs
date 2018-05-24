@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('./components/header') %>
+<body>
+<div class="contain">
+    <!--header-->
+
+    <div class="topbox">
+        <div class="topmid">
+            <div class="topleft">
+                <a href="/index"><span class="toplogo"></span></a>狸米数学 </div>
+            <span class="topRphone">服务热线：010-84997885</span>
+        </div>
+    </div>
+    <div class="fram_main">
+        <div class="succes_box">
+            <p class="sucp1">申请成功！</p>
+            <!--<p class="sucp2">初始密码将以短信的形式发送到您的手机上<br />为了您的账户安全，请在首次登陆后修改密码</p>-->
+            <!--<p class="sucp3">由于五一放假，您的课程顾问会在5月2号与您联系，请耐心等候哦！<br />-->
+            <p class="sucp3">您的课程顾问会尽快与您联系，请耐心等候哦！<br />
+                <b id="bid" disabled="disabled">15</b><b>秒</b>后页面将自动跳转至
+                <a href="/index">首页</a>
+            </p>
+        </div>
+    </div>
+</div>
+<%- include('./components/footer') %>
+<script>
+    //10s后返回首页
+    var bid = document.getElementById("bid");
+    bid.disabled = true;
+    var m = 15;
+
+    function fun() {
+        m--;
+        bid.innerHTML = m;
+        if(m >= 1) {
+            setTimeout("fun()", 1000);
+        } else {
+            bid.disabled = false; //解除禁用
+            //跳转页面
+            window.location.href = '/index';
+        }
+    }
+    //定时调用函数
+    setTimeout("fun()", 1000);
+</script>
+</body>
+</html>

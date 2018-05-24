@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('./components/header') %>
+<body>
+<%- include('./components/body-header') %>
+<div class="tra_banner">
+    <div class="tra_mid">
+        <a href="/download?llmxx=1" class="tra_nbtn">下载狸米学习</a>
+    </div>
+</div>
+<div class="tra_mode">
+    <h1 class="tra_modetit">最全面的训练体系</h1>
+    <p class="tra_modep">专业化配套学校日常教学需求</p>
+    <p class="tra_mimg"><img src="../assets/first@1x.png" /></p>
+</div>
+<div class="tra_swp">
+    <div class="de_kctsimg"><img src="../assets/ic.png"></div>
+    <div class="tra_swpname">最优质的训练题目</div>
+    <div class="tra_swpp">与教育部数学教育技术应用与创新研究中心联合研发</div>
+    <!--<div class="tra_swptitle">精品化制作</div>-->
+    <div class="traphoto">
+        <a class="arrow-left" href="#"></a>
+        <a class="arrow-right" href="#"></a>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <span>精品化制作</span><img src=" ../assets/s1.png ">
+                </div>
+                <div class="swiper-slide">
+                    <span>难题配套视频讲解</span><img src="../assets/s2.png ">
+                </div>
+                <div class="swiper-slide">
+                    <span>提供校本定制服务</span><img src="../assets/s3.png ">
+                </div>
+                <div class="swiper-slide">
+                    <span>提供校本定制服务</span><img src="../assets/s4.png">
+                </div>
+                <div class="swiper-slide">
+                    <span>提供校本定制服务</span><img src=" ../assets/s5.png ">
+                </div>
+                <div class="swiper-slide">
+                    <span>提供校本定制服务</span><img src="../assets/s6.png">
+                </div>
+            </div>
+        </div>
+        <div class="pagination"></div>
+        <!--<div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><span>精品化制作</span><img src="../assets/s1.png"></div>
+                <div class="swiper-slide"><span>难题配套视频讲解</span><img src="../assets/s2.png"></div>
+                <div class="swiper-slide"><span>提供校本定制服务</span><img src="../assets/s3.png"></div>
+                <div class="swiper-slide"><span>精品化制作</span><img src="../assets/s4.png"></div>
+                <div class="swiper-slide"><span>难题配套视频讲解</span><img src="../assets/s5.png"></div>
+                <div class="swiper-slide"><span>提供校本定制服务</span><img src="../assets/s6.png"></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>-->
+    </div>
+</div>
+<div class="tra_mode">
+    <h1 class="tra_xltit">最科学的训练模式</h1>
+    <p class="tra_xlp">五步学习法，确保学会，逐级提升</p>
+    <p class="tra_xlimg"><img src="../assets/third@1x.png" /></p>
+    <h1 class="tra_xltit2">最全面的终端适用</h1>
+    <p class="traimgp padb79"><img src="../assets/threimg.png"></p>
+    <p class="traimgp padb26"><img src="../assets/fourth@1x.png"></p>
+</div>
+<div class="tra_scool">
+    <p class="tra_sp1">学校应用支持方案</p>
+    <p class="tra_sp2">为支持国家信息化教学改革，狸米免费为学校提供完整的智能化教学配套方案</p>
+    <p class="tra_sp3">应用模式</p>
+    <div class="tra_mid">
+				<span class="tra_yyimg">
+					布置作业
+				</span>
+        <span class="tra_yyimg2">
+					平板教学
+				</span>
+        <div class="clear"></div>
+    </div>
+    <p class="tra_sp4">配套软件</p>
+    <div class="tra_mid padb128">
+        <img src="../assets/phone_1@1x.png" />
+        <img src="../assets/phone_2@1x.png" class="tra_phimg" />
+        <img src="../assets/phone_3@1x.png" />
+    </div>
+    <div class="tra_contact">
+        <p class="tra_conpname">学校免费应用联系专线</p>
+        <p class="tra_conpxx"><span>电话：010-84923607</span><span>邮箱：service@limikeji.com</span></p>
+    </div>
+</div>
+<div class="tra_lastbox">
+    <div class="de_kctsimg"><img src="../assets/ic.png"></div>
+    <div class="tra_lastname">狸米学习获得的认可</div>
+    <div class="tra_mid">
+        <div class="tra_lastli">
+            <p>十三五课题</p>
+            <img src="../assets/last_1.png">
+        </div>
+        <div class="tra_lastli">
+            <p>专家认定意见</p>
+            <img src="../assets/last_2.png">
+        </div>
+        <div class="tra_lastli">
+            <p>中央电教馆检测报告</p>
+            <img src="../assets/last_3.png">
+        </div>
+        <div class="tra_lastli">
+            <p>张景中院士题词</p>
+            <img src="../assets/last_4.png">
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<%- include('./components/footer') %>
+<script>
+    $(document).ready(function() {
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: '.pagination',
+            loop: true,
+            grabCursor: true,
+            paginationClickable: true
+        })
+        $('.arrow-left').on('click', function(e) {
+            e.preventDefault()
+            mySwiper.swipeNext()
+        })
+        $('.arrow-right').on('click', function(e) {
+            e.preventDefault()
+            mySwiper.swipePrev()
+        })
+    })
+</script>
+</body>
+</html>

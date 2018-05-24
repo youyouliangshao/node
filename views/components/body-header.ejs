@@ -1,0 +1,53 @@
+<div class="de_nav navwhite">
+    <div class="de_logo">
+        <a href="/"></a>
+    </div>
+    <ul>
+        <li>
+            <a class="active" href="/">首页</a>
+        </li>
+        <li>
+            <a href="/class">培优课程</a>
+        </li>
+        <li>
+            <a href="/train">智能训练</a>
+        </li>
+        <li>
+            <a href="/download">下载软件</a>
+        </li>
+    </ul>
+</div>
+<div class="de_nav navgreen">
+    <div class="de_logo">
+        <a href="/"></a>
+    </div>
+    <ul>
+        <li>
+            <a class="active" href="/">首页</a>
+        </li>
+        <li>
+            <a href="/class">培优课程</a>
+        </li>
+        <li>
+            <a href="/train">智能训练</a>
+        </li>
+        <li>
+            <a href="/download">下载软件</a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        var topLink = window.location.pathname;
+        $(".de_nav ul li a").removeClass("active")
+        if(topLink.indexOf("index") != -1) {
+            $(".de_nav ul li a").eq(0).addClass("active");
+        } else if(topLink.indexOf("classlist") != -1) {
+            $(".de_nav ul li a").eq(1).addClass("active");
+        } else if(topLink.indexOf("training") != -1) {
+            $(".de_nav ul li a").eq(2).addClass("active");
+        } else if(topLink.indexOf("download") != -1) {
+            $(".de_nav ul li a").eq(3).addClass("active");
+        }
+    });
+</script>

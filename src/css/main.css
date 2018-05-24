@@ -1,0 +1,1518 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*首页*/
+.index_banner{
+    width: 100%;
+    height: 675px;
+    position: relative;
+    overflow: hidden;
+    background:#000 url(../assets/ban-ind.jpg) no-repeat top center;
+}
+.index_banner video{
+    height: 100%;
+    width: 100%;
+    min-width: 1920px;
+}
+.video_bg {
+    width: 100%;
+    min-width: 1200px;
+    height: 675px;
+}
+.video_mask {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    background: #000000;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+}
+
+.userinput{
+    margin-top: 24px;
+    height: 60px;
+}
+.userinput input{
+    width: 275px;
+    padding-left: 20px;
+    height: 60px;
+    line-height: 60px;
+    font-family: PingFang_R;
+    font-size: 22px;
+    color: #666;
+    background: #fff;
+    float: left;
+    border: none;
+}
+.userinput input::-webkit-input-placeholder {
+    color: #999999;
+}
+.userinput a{
+   display: inline-block;
+    padding: 0 35px;
+    height: 60px;
+    background-color: #ea5520;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 24px;
+    line-height: 60px;
+    color: #ffffff;
+    float: left;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+/*.ban_word h6{
+    font-family: PingFang_R;
+    font-size: 30px;
+    font-weight: normal;
+    color: #26b7bc;
+    margin-top: 34px;
+}*/
+
+.special_center{
+    margin-left: 172px;
+    margin-right: 112px;
+}
+.special_two{
+	margin: 20px 200px 0 200px;
+}
+.support{
+    width: 100%;
+    padding-top:110px;
+    background: #f6f6f6;
+}
+.sup_top{
+    width: 1200px;
+    margin:0 auto;
+}
+.sup_top h2{
+    margin-top: 60px;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 80px;
+    color: #222222;
+    text-align: center;
+}
+.sup_top h3{
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    text-align: center;
+}
+.sup_center{
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+.sup_center img{
+	max-height: 552px;
+	max-width: 1820px;
+    width: 100%;
+}
+.sup_bottom{
+    width: 1200px;
+    margin:0 auto;
+}
+.sup_bottom dl{
+    height: 140px;
+    display: inline-block;
+    margin-top: 80px;
+    width: 545px;
+}
+.sup_bottom dt{
+    float: left;
+    width: 140px;
+    height: 100%;
+}
+.sup_bottom dt img{
+    width: 100%;
+    height: 100%;
+}
+.sup_bottom dd{
+    float: left;
+    margin-left: 30px;
+    width: 370px;
+}
+.sup_bottom dd h6{
+    font-family: PingFang_R;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    margin:12px 0 15px 0;
+}
+.sup_bottom dd p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    line-height: 28px;
+    color: #222222;
+}
+.sup_bottom .dl_right{
+    float: right;
+}
+.bot_one{
+    padding-bottom: 80px;
+    border-bottom: 1px solid #ededed;
+}
+.bot_two{
+    margin-top: 80px;
+}
+.bot_two img{
+    width: 294px;
+    height: 423px;
+}
+.bot_two div{
+    float: right;
+}
+.bot_two div h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 46px;
+    font-weight: normal;
+    line-height: 46px;
+    color: #222222;
+    margin-top: 55px;
+}
+.bot_two div h2{
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.bot_two div p{
+    width: 870px;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 20px;
+    line-height: 32px;
+    color: #222222;
+}
+.parent{
+	width: 100%;
+    height: auto;
+    padding-bottom:140px;
+    background:#F6F6F6;
+}
+.parentMain{
+    width: 1200px;
+    margin: 0 auto;
+}
+.parent h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 100px;
+}
+.parent dl{
+    width: 355px;
+    height: 280px;
+    display: inline-block;
+    margin-top: 40px;
+}
+.parent .dl_center{
+    margin:0 60px;
+}
+.parent dt{
+    width: 98px;
+    height: 98px;
+    float: left;
+}
+.parent dt img{
+    width: 100%;
+    height: 100%;
+}
+.parent dd{
+    float: left;
+    margin-left: 30px;
+    width: 227px;
+}
+.parent dd h5{
+    font-family: PingFang_R;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #000000;
+    margin-top: 10px;
+}
+.parent dd h6{
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    color: #999999;
+    margin: 20px 0;
+}
+.parent dd p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #222222;
+    width: 226px;
+}
+.parent .dl_long{
+    height: 380px;
+}
+.promise{
+    width: 100%;
+    height: 680px;
+}
+.pro_main{
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+.promise dl{
+    margin-top: 50px;
+    clear: both;
+}
+.promise dl dt{
+    width:52px;
+    height: 52px;
+    display: inline-block;
+    float: left;
+}
+.promise dd{
+    display: inline-block;
+    margin-left: 30px;
+    width: 850px;
+}
+.promise dd h1{
+    margin-top: 10px;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    margin-bottom: 15px;
+}
+.promise dd p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    line-height: 28px;
+    color: #222222;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*关于我们*/
+.aboutus{
+}
+.banner{
+    width: 100%;
+    height: 450px;
+    background: url("../assets/bannerabout.jpg") no-repeat center center;
+    background-size:auto 100%;
+}
+.banner p{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    line-height: 26px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 171px;
+}
+.banner p.aboutpleft{
+	height: 80px;
+}
+.banner p span{
+	line-height: 80px;
+    font-size: 72px;
+}
+.banner p em{
+    display: inline-block;
+    width: 1px;
+    height: 40px;
+    background: #fff;
+    font-size: 0px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.title{
+    font-family: PingFang-SC-Medium;
+    font-size: 52px;
+    font-weight: normal;
+    line-height: 52px;
+    color: #000;
+    text-align: center;
+    padding-bottom: 30px;
+    background: url("../assets/blue.png") no-repeat center bottom;
+    background-size: 120px 4px;
+}
+.introduce{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+.introduce p{
+    width: 1200px;
+    margin-top: 33px;
+    font-family: PingFang_R;
+    font-size: 20px;
+    line-height: 32px;
+    color: #222222;
+}
+.environmen{
+    width: 100%;
+    padding:80px 0;
+    background: #f9f9f9;
+}
+.environmen div{
+    width: 1140px;
+    margin: 0 auto;
+}
+.environmen{
+    font-size: 0;
+}
+.environmen .pic{
+    margin-top: 30px;
+    width: 100%;
+}
+.us{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+.us div{
+    width: 100%;
+    height: 500px;
+    margin-top: 39px;
+    background: url("../assets/base.png") no-repeat center center;
+    background-size: 1200px 500px;
+}
+.us div h1{
+    padding-top: 80px;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #ffffff;
+    margin-left: 590px;
+}
+.us div p{
+    margin-top: 28px;
+    font-family: PingFang_R;
+    font-size: 24px;
+    color: #ffffff;
+    margin-left: 590px;
+    width: 516px;
+    line-height: 40px;
+}
+
+/*联系我们*/
+.map{
+    width: 100%;
+    height: 450px;
+    background: url("../assets/map.jpg") no-repeat center center;
+    background-size:auto 100%;
+}
+.address{
+    width: 1140px;
+    margin: 0 auto;
+    padding: 60px 0 122px 0;
+    overflow: hidden;
+}
+.address h1{
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ededed;
+    font-size: 20px;
+    line-height: 20px;
+    color: #222222;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+.address h1 img{
+    width: 18px;
+    height: 22px;
+    position: absolute;
+    top:-1px;
+    left:0;
+}
+.address .info{
+    margin-top: 50px;
+    width: 100%;
+}
+.address .info div{
+    display: inline-block;
+    width: 518px;
+}
+.address .info h6{
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    color: #222222;
+}
+.address .info p{
+    font-family: PingFang_R;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #666666;
+    margin-top:24px;
+}
+.address .info .last{
+    width: 100px;
+}
+.help{
+    position:fixed;
+    bottom:5%;
+    right:8%;
+}
+.help div{
+    width: 185px;
+    height: 66px;
+    background-color:#e8e56a;
+    line-height: 66px;
+    margin-top: 10px;
+}
+.help div p{
+    background: url("../assets/jx.png") no-repeat left top;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 20px;
+    color: #222222;
+    cursor: pointer;
+}
+.help div p:hover{
+    background:none;
+}
+.help div p img{
+    width: 43px;
+    height: 48px;
+    margin-left: 12px;
+    margin-right: 27px;
+}
+.help .gotop p img{
+    width: 42px;
+    height: 23px;
+}
+
+
+
+/*商业合作*/
+.coo_index{
+    background:#000 url("../assets/coo_banner.jpg") no-repeat center center;
+    background-size:auto 100%;
+}
+.ban_mask{
+    position: absolute;
+    width: 100%;
+    height:678px;
+    top:0;
+    left: 0;
+    background: #000000;
+    opacity: 0.3;
+    filter:alpha(opacity=30);
+}
+.condition{
+    width: 100%;
+    height: 376px;
+    background: #f9f9f9;
+}
+.condition_main{
+    width: 1200px;
+    margin: 0 auto;
+}
+.condition_main div{
+    float: left;
+}
+.condition_main div h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    margin-top: 92px;
+    margin-bottom: 30px;
+}
+.condition_main div p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 36px;
+    letter-spacing: 0px;
+    color: #222222;
+}
+.condition_main .condition_right{
+    float: right;
+}
+.aboutlimi{
+    height: 915px;
+    margin-top: 67px;
+    background: url("../assets/sky.png") no-repeat bottom center;
+    background-size:auto 100%;
+}
+.aboutlimi_main{
+    width: 1200px;
+    margin: 0 auto;
+}
+.aboutlimi_main h2{
+    margin-top: 171px;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+    text-align: center;
+}
+.aboutlimi_main p{
+    margin-top: 44px;
+    font-family: PingFang_R;
+    font-size: 30px;
+    line-height: 30px;
+    color: #222222;
+    text-align: center;
+}
+.aboutlimi_main h3{
+    margin-top: 138px;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+    text-align: center;
+}
+.com_inform{
+    width: 1140px;
+    padding: 106px 0 97px 0;
+    margin: 0 auto;
+}
+.com_inform h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+}
+.com_inform p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 32px;
+    color: #222222;
+    margin-top: 30px;
+}
+.com_inform h6{
+    margin-top: 37px;
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    color: #222222;
+    margin-bottom: 30px;
+}
+.com_inform .videobox{
+    width: 1140px;
+    height: 570px;
+    margin-top: 50px;
+    position: relative;
+}
+.com_inform video{
+    width: 1140px;
+    height: 570px;
+    cursor: pointer;
+    z-index: 6;
+    position: relative;
+}
+.com_inform .video_icon{
+    width: 1140px;
+    height: 570px;
+    position: absolute;
+    top:0px;
+    left:0;
+    z-index: 99;
+}
+.com_inform .video_opcity{
+    position: absolute;
+    top:0px;
+    left:0;
+    width: 1140px;
+    height: 513px;
+    opacity: 0;
+    z-index: 10;
+}
+.com_inform .videoBg{
+    width: 1140px;
+    height: 570px;
+}
+#ceo_videobox{
+    background: url("../assets/video1.jpg") no-repeat center center;
+    background-size: cover;
+}
+#pro_videobox{
+    background: url("../assets/video2.jpg") no-repeat center center;
+    background-size: cover;
+}
+.story{
+    width: 100%;
+    height: 747px;
+    background: #f9f9f9;
+}
+.story_main{
+    width: 1140px;
+    margin: 0 auto;
+}
+.story_main h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+    padding-top: 94px;
+}
+.story_left{
+    float: left;
+    width: 450px;
+    padding-right: 17px;
+}
+.story_left h2{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+    margin-top: 100px;
+}
+.story_left h3{
+    margin-top: 18px;
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+}
+.story_left p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    line-height: 32px;
+    color: #222222;
+    margin-top:45px;
+}
+.story_right{
+    float: right;
+}
+.story_right img{
+    width: 673px;
+    height: 419px;
+    margin-top: 100px;
+}
+.course{
+    width: 1140px;
+    margin: 0 auto;
+    padding: 75px 0 100px 0;
+}
+.course h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+}
+.course dl{
+    height: 336px;
+    margin-top: 20px;
+}
+.course dt{
+    float: left;
+    width: 400px;
+    height: 336px;
+    background: #f9f9f9;
+}
+.course dt img{
+    width: 100%;
+    height: 100%;
+}
+.course dd{
+    float: right;
+    width: 720px;
+}
+.course dd h6{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    margin-top: 40px;
+}
+.course dd p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 32px;
+    color: #222222;
+    margin-top: 22px;
+}
+.course_right dt{
+    float: right;
+}
+.course_right dd{
+    float: left;
+}
+.product{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom:90px;
+}
+.product h1{
+    font-family: ﻿PingFang-SC-Medium;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #222222;
+    text-align: center;
+}
+.product .videobox{
+    width: 1200px;
+    height: 600px;
+    position: relative;
+    margin-top: 50px;
+}
+.product .video_icon{
+    width: 1200px;
+    height: 600px;
+    position: absolute;
+    top:0px;
+    left:0;
+    z-index: 99;
+}
+.product .videoBg{
+    width: 1200px;
+    height: 600px;
+}
+.product video{
+    width: 1200px;
+    height: 600px;
+    position: relative;
+    z-index: 6;
+}
+.product .video_opcity{
+    position: absolute;
+    top:0px;
+    left:0;
+    width: 1200px;
+    height: 540px;
+    opacity: 0;
+    z-index: 10;
+}
+.coo_footer{
+    width: 100%;
+    height: 70px;
+    background: #ebebeb;
+    line-height: 70px;
+}
+.coo_footer p{
+    text-align: center;
+}
+.coo_footer p span{
+    display: inline-block;
+    margin: 0 10px;
+    font-family: PingFang_R;
+    font-size: 16px;
+    line-height: 32px;
+    color: #666666;
+    text-decoration: none;
+}
+.coo_footer p a{
+    display: inline-block;
+    margin: 0 40px;
+    font-family: PingFang_R;
+    font-size: 16px;
+    line-height: 32px;
+    color: #666666;
+    text-decoration: none;
+}
+.coo_footer1{
+    width: 100%;
+    height: 70px;
+    background: #d0d0d0;
+    line-height: 70px;
+}
+.coo_footer1 p{
+    text-align: center;
+    font-family: PingFang_R;
+    font-size: 16px;
+    color: #818181;
+}
+.coo_footer1 a img{
+    width: 15px;
+    margin-right: 5px;
+}
+.coo_footer1 p a{
+    text-align: center;
+    font-family: PingFang_R;
+    font-size: 16px;
+    color: #818181;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.aboutp{
+	display: inline-block;
+    font-style: normal;
+    text-align: left;
+    font-size: 26px;
+    line-height: 50px;
+}
+
+/*new lbx*/
+
+b{
+    font-weight: normal;
+}
+em{
+    font-style: normal;
+}
+.audition{
+    width: 100%;
+    height: 557px;
+    background: url("../assets/bg982.png") no-repeat center center;
+    background-size:cover;
+}
+.auMain{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+.auMain ul{
+    width: 560px;
+    height: 320px;
+    float: left;
+    padding-top: 100px;
+}
+.auMain li{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.auMain .vibg{
+    width: 560px;
+    height: 320px;
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+}
+.auMain .classImg{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 560px;
+    height: 320px;
+    z-index: 2;
+}
+.auMain .btnImg{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top:50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+    z-index: 3;
+}
+.auapply{
+    float: right;
+    padding-top: 100px;
+}
+.auapply h1{
+    font-size: 44px;
+    font-weight: normal;
+    line-height: 44px;
+    color: #ffffff;
+    height: 74px;
+    width: 429px;
+    background: url("../assets/bg987.png") no-repeat right bottom;
+    background-size:429px 52px;
+    margin-top: 80px;
+}
+.auapply p{
+    font-family: PingFang-SC-Medium;
+    font-size: 22px;
+    line-height: 22px;
+    color: #ffffff;
+    margin-top: 40px;
+}
+.auapply div{
+    margin-top: 15px;
+    height: 48px;
+}
+.auapply input{
+    background: none;
+    border: none;
+    width: 354px;
+    height: 48px;
+    background: #f7f6f1;
+    float: left;
+    font-family: PingFang-SC-Medium;
+    font-size: 18px;
+    line-height: 48px;
+    padding-left: 20px;
+    outline: none;
+}
+.auapply :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #999999;
+}
+
+.auapply ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #999999;
+}
+
+.auapply input:-ms-input-placeholder{
+    color: #999999;
+}
+
+.auapply input::-webkit-input-placeholder{
+    color: #999999;
+}
+.auapply button{
+    float: left;
+    width: 176px;
+    height: 48px;
+    border:none;
+    background-color: #ea5520;
+    text-align: center;
+    line-height: 48px;
+    font-family: PingFang-SC-Medium;
+    font-size: 22px;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+.class_intro{
+    width: 100%;
+    overflow: hidden;
+}
+.class_title{
+    width: 100%;
+}
+.class_title h2{
+    font-family: PingFang-SC-Regular;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    padding-top: 80px;
+    color: #666666;
+    text-align: center;
+}
+.class_title h1{
+    font-family: PingFang-SC-Medium;
+    font-size: 52px;
+    font-weight: normal;
+    line-height: 52px;
+    color: #222222;
+    text-align: center;
+    padding-bottom: 30px;
+    background: url("../assets/blue.png") no-repeat center bottom;
+    background-size: 120px 4px;
+    margin-bottom: 90px;
+    margin-top: 18px;
+}
+.class_info{
+    width: 50%;
+    float: left;
+    height: 840px;
+}
+.class_info dl{
+    width: 100%;
+    height: 420px;
+    position: relative;
+    border:2px solid #fff;
+}
+.class_info dt{
+    width:100%;
+    height: 420px;
+}
+.class_info .bg1{
+    background:#f8f8f8 url("../assets/index_img1.png") no-repeat center center;
+    background-size: auto 100%;
+}
+.class_info .bg2{
+    background:#f8f8f8 url("../assets/index_img3.png") no-repeat center center;
+    background-size: auto 100%;
+}
+.class_info .bg3{
+    background:#f8f8f8 url("../assets/index_img2.png") no-repeat center center;
+    background-size: auto 100%;
+}
+.class_info .bg4{
+    background:#f8f8f8 url("../assets/index_img4.png") no-repeat center center;
+    background-size: auto 100%;
+}
+.class_info dd{
+    position: absolute;
+    top:0px;
+    width: 440px;
+    right: 160px;
+}
+.class_info dd h1{
+    font-family: PingFang-SC-Medium;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #222222;
+    padding-top: 70px;
+}
+.class_info dd p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    color: #000000;
+    margin-top: 20px;
+    text-align: left;
+    line-height: 28px;
+}
+.class_right{
+    float: right;
+}
+.class_right dl{
+    float: left;
+}
+.class_right dl dd{
+    left: 45px;
+}
+.special{
+    width: 100%;
+    background:#4a4293;
+    margin-top: 20px;
+}
+.special_main{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0 80px 0;
+}
+.special_main h1{
+    font-family: PingFang-SC-Medium;
+    font-size: 52px;
+    font-weight: normal;
+    line-height: 52px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 30px;
+    background: url("../assets/blue.png") no-repeat center bottom;
+    background-size: 120px 4px;
+    margin-bottom: 90px;
+}
+.special_main h1 span{
+    color: #26b7bc;
+}
+.special_info{
+    margin-top: 40px;
+    height: 260px;
+}
+.special_info dl{
+    width: 400px;
+    float: left;
+}
+.special_info dt{
+    width: 106px;
+    margin: 0 auto;
+}
+.special_info dt img{
+    width: 106px;
+    height: 120px;
+}
+.special_info dd h2{
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 18px;
+}
+.special_info dd p{
+    font-family: PingFang_R;
+    font-size: 20px;
+    line-height: 28px;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*视频样式*/
+.videoMark{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: none;
+}
+.videoMark video{
+    width: 1000px;
+    height: 500px;
+    border: solid 6px rgba(255,255, 255,0.4);
+}
+.videoMark div{
+    position: relative;
+    width: 1000px;
+    margin:150px auto;
+}
+.videoMark img{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -55px;
+    top:0px;
+}
+
+/*订单信息页*/
+.infoBox{
+    width: 1200px;
+    margin: 0 auto;
+}
+.infoBox h1{
+    font-family: PingFang-SC-Medium;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 22px;
+    padding-top:40px;
+    color: #222222;
+}
+.infoMain{
+    width: 100%;
+    border: solid 1px #dddddd;
+    margin-top:20px;
+    padding-bottom: 100px;
+    margin-bottom: 50px;
+}
+.infoMain .infotitle{
+    font-family: PingFang-SC-Bold;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #222222;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.infoList{
+    width: 1140px;
+    height: 181px;
+    margin:20px auto;
+    background-color: #f8f8f8;
+    border: solid 1px #dddddd;
+}
+.infoList ul{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.infoList ul li{
+    margin-top: 20px;
+    font-family: PingFang-SC-Medium;
+    font-size: 16px;
+    line-height: 16px;
+    color: #222222;
+}
+.infoMain .infoprice{
+    font-family: PingFang-SC-Medium;
+    font-size: 16px;
+    line-height: 16px;
+    color: #666666;
+    margin-top: 20px;
+    text-align: right;
+}
+.infoMain .infoprice span{
+    display: inline-block;
+    margin-left: 80px;
+    margin-right: 20px;
+}
+.list_two{
+    width: 1140px;
+    height: 110px;
+    margin: 30px auto 0;
+    border-top: solid 1px #dddddd;
+    border-bottom: 1px dashed #d6d6d6;
+}
+.list_two h2{
+    margin-left: 0px!important;
+}
+.list_three{
+    width: 1140px;
+    height: 110px;
+    margin: -1px auto;
+    border-top: solid 1px #dddddd;
+    border-bottom: 1px dashed #d6d6d6;
+}
+.list_three h2{
+    margin-left: 0px!important;
+}
+.paylist{
+    width:100%;
+    height: 64px;
+    margin-top: 10px;
+}
+.payone{
+    margin-top:30px;
+}
+.paylist div{
+    font-family: PingFang-SC-Medium;
+    font-size: 16px;
+    color: #222222;
+    float: left;
+    line-height: 64px;
+}
+.paylist img{
+    vertical-align: middle;
+}
+.paylist .payicon{
+    width: 23px;
+    height: 22px;
+    margin-right: 10px;
+}
+.paylist .payicon1{
+    width: 24px;
+    height: 23px;
+    margin-right: 10px;
+}
+.paylist .radio{
+    width: 12px;
+    height: 12px;
+    margin-left: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.paylist p{
+    float: right;
+    margin-right: 50px;
+    font-family: PingFang-SC-Medium;
+    font-size: 16px;
+    line-height: 64px;
+    color: #666666;
+    display: none;
+}
+.paylist p span{
+    color: #ea5521;
+}
+.paylist p span em{
+    font-size: 30px;
+}
+.paynow{
+    margin-top: 30px;
+}
+.paynow button{
+    float: right;
+    width: 160px;
+    height: 48px;
+    background-color: #ea5521;
+    line-height: 48px;
+    font-family: PingFang-SC-Medium;
+    font-size: 22px;
+    color: #ffffff;
+    margin-right: 30px;
+}
+.paynow p {
+    font-family: PingFang-SC-Medium;
+    font-size: 16px;
+    line-height: 16px;
+    color: #666666;
+    float: right;
+    margin-right: 35px;
+    margin-top: 16px;
+}
+.paynow p span{
+    color: #ea5521;
+}
+
+.payMark{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    display: none;
+}
+.alertpay{
+    width: 550px;
+    height: 510px;
+    background-color: #ffffff;
+    border: solid 6px rgba(0, 0, 0, 0.3);
+    margin: 150px auto;
+    text-align: center;
+    position: relative;
+}
+.alertpay .payclose{
+    position: absolute;
+    right: 36px;
+    top:36px;
+    width: 19px;
+    height: 20px;
+    cursor: pointer;
+}
+.alertpay h1{
+    font-family: PingFang-SC-Medium;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 32px;
+    color: #222222;
+    padding-top:85px;
+}
+.alertpay h1 span{
+    color: #ea5521;
+}
+.alertpay p {
+    font-family: PingFang-SC-Medium;
+    font-size: 16px;
+    line-height: 16px;
+    color: #666666;
+    margin-top: 15px;
+}
+.alertpay p span{
+    color: #ea5521;
+}
+.alertpay .paycode{
+    width: 145px;
+    height: 145px;
+    display: block;
+    margin: 40px auto 0;
+}
+.alertpay button{
+    width: 240px;
+    height: 48px;
+    background-color: #26b7bc;
+    margin: 40px auto 0;
+    font-size: 22px;
+    line-height: 48px;
+    text-align: center;
+    color: #ffffff;
+}
+.alertpay h6{
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 29px;
+    color: #222222;
+}
+
+/*我的课程*/
+.containBox{
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6!important;
+}
+.myBox{
+    width: 1200px;
+    margin: 30px auto;
+}
+.myleft{
+    width: 240px;
+    padding-top: 50px;
+    height: 345px;
+    background: #fff;
+    position: relative;
+    float: left;
+}
+.blueline{
+    width: 4px;
+    height: 54px;
+    position: absolute;
+    left: 0;
+    top:234px;
+}
+.myleft div img{
+    width: 80px;
+    height: 80px;
+    display:block;
+    margin:0 auto;
+}
+.myleft p {
+    width: 180px;
+    border-bottom: 2px solid #dddddd;
+    margin: 22px auto;
+    padding-bottom: 24px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333333;
+    text-align: center;
+}
+.myleft h1{
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    color: #333333;
+    margin-top: 60px;
+    text-align: center;
+}
+.myright{
+    width: 928px;
+    height: 610px;
+    background: #fff;
+    float: right;
+    margin-bottom: 100px;
+}
+.mylist{
+    margin-top: 40px;
+    width: 100%;
+}
+.mylist ul li{
+    margin: 0 33px;
+    height: 80px;
+    border-bottom:1px solid #dddddd;
+    line-height: 80px;
+    font-size: 20px;
+    color: #222222;
+}
+.mylist ul li span{
+    color: #666666;
+}
+.mybtn{
+    margin-top: 50px;
+    position: relative;
+}
+.mybtn button{
+    width: 120px;
+    height: 48px;
+    border: solid 2px #dddddd;
+    line-height: 48px;
+    text-align: center;
+    font-size: 20px;
+    color: #999999;
+    float: left;
+    position: absolute;
+    top:0;
+}
+.mybtn .prev{
+    left: 33px;
+}
+.mybtn .next{
+    right: 33px;
+}
+.mybtn p{
+    height: 48px;
+    width: 100%;
+    line-height: 48px;
+    text-align: center;
+    font-size: 20px;
+    color: #222222;
+}

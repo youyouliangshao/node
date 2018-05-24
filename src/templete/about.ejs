@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('./components/header') %>
+<body>
+<div class="contain">
+    <%- include('./components/body-header') %>
+    <div class="aboutus">
+        <div class="banner">
+            <div>
+                <p class="aboutpleft"><span>狸米数学</span><br />
+                    <!--<em class="line"></em> -->
+                    <i class="aboutp"> 让更多的孩子以未来模式掌握知识、学会学习！</i></p>
+            </div>
+        </div>
+        <div class="com_inform">
+            <h1>企业介绍</h1>
+            <p>狸米是一家互联网教育公司，我们致力于以在线模式为中小学家庭和学校提供专业且优质的教学服务，产品主要包括在线学科培优课程和在线个性化学习辅导工具。狸米成立于2014年，是在线教育行业最具创新能力的代表之一。  </p>
+            <h6>狸米企业宣传片</h6>
+            <div class="videobox" id="ceo_videobox">
+                <img id="ceo_video_icon" src="../assets/video_icon.png" class="video_icon" id="ceo_video_icon" alt="">
+                <div class="video_opcity" id="ceo_video_opcity"></div>
+                <video id="ceo_video_auto" loop="loop" muted="true" autoplay="autoplay" poster="../assets/video1.jpg" src="http://www.limiedu.com/static/assets/company.m4v">您的浏览器不支持 video 标签。</video>
+            </div>
+        </div>
+        <div class="story">
+            <div class="story_main">
+                <h1>创始人故事</h1>
+                <div class="story_left">
+                    <h2>霍亮</h2>
+                    <h3>狸米数学创始人，CEO</h3>
+                    <p>狸米创始人霍亮先生身兼公司董事长与CEO职务，他曾是新浪网的早期创始成员，是中国互联网发展历程中的首批探索实践者。</p>
+                    <p>1996年，尚在北京大学就读的霍亮先生就参与了四通利方公司（新浪前身）的互联网创新项目。新浪成立后，霍亮先生先后担任首席产品经理、资深产品总监、直至互动社区事业部总经理职务。 </p>
+                </div>
+                <div class="story_right">
+                    <img src="../assets/ceo.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="course">
+            <h1>发展历程</h1>
+            <dl class="course_right">
+                <dt><img src="../assets/lc.png" alt=""></dt>
+                <dd>
+                    <h6>2014年</h6>
+                    <p>2014年，霍亮先生带着丰富的互联网成功经验，积极投入到在线教育行业，通过与教育行业资深专家的合作，创新推出狸米数学首期产品：个性化学习与辅导系统——狸米学习，并于当年顺利获得知名VC北极光创投的天使投资。</p>
+                </dd>
+            </dl>
+            <dl>
+                <dt><img src="../assets/limiyjy.jpg" alt=""></dt>
+                <dd>
+                    <h6>2015年</h6>
+                    <p>2015年，狸米与教育部数学教育技术应用与创新研究中心合作成立狸米研究院，通过与国内顶级专家的深度合作，进一步提升了产品的专业化程度。同年11月狸米获得教育部哲学社会科学研究重大攻关项目子课题暨中国教育技术协会十三五规划重点课题。</p>
+                </dd>
+            </dl>
+            <dl class="course_right">
+                <dt><img src="../assets/zs.png" alt=""></dt>
+                <dd>
+                    <h6>2016年</h6>
+                    <p>2016年，狸米顺利通过中央电教馆2016“数字校园综合解决方案”检测认证。此后狸米数学产品在全国获得了广泛的应用和推广，截止2016年底，应用狸米数学产品的学生已近千万。同年狸米再次获得以中文基金领投北极光跟投的A轮融资。  </p>
+                </dd>
+            </dl>
+            <dl>
+                <dt><img src="../assets/rz.png" alt=""></dt>
+                <dd>
+                    <h6>2017年</h6>
+                    <p>继狸米学习——个性化训练与辅导系统的成功之后，2017年7月，狸米再次推出数学思维直播课，进一步拓展在线教学服务范围。作为极具创新能力的教育企业，狸米直播课一经推出就受到广泛的关注，其新颖的授课方式、顶级的师资能力、专业的教研内容，深受家长和专家的认可和赞许。同年狸米继续获得以SIG领投北极光与创新工场跟投的B轮融资。 </p>
+                </dd>
+            </dl>
+        </div>
+        <div class="environmen">
+            <div>
+                <h1 class="title">公司内景</h1>
+                <div class="pic">
+                    <img src="../assets/img-test.jpg" alt="" />
+                </div>
+            </div>
+        </div>
+        <%- include('./components/footer') %>
+    </div>
+</div>
+<script>
+    var ceo_video_auto = document.getElementById("ceo_video_icon");
+    ceo_video_auto.onclick = function() {
+        $("#ceo_video_icon").hide()
+        $('#ceo_video_auto').hide();
+        var html = '<video id="ceo_video" autoplay="autoplay" poster="../assets/video1.jpg" src="http://www.limiedu.com/static/assets/company.m4v" controls="controls">您的浏览器不支持 video 标签。</video>'
+        $('#ceo_videobox').append(html)
+        var ceo_videobtn = document.getElementById("ceo_video_opcity");
+        var ceo_video = document.getElementById("ceo_video");
+        ceo_videobtn.onclick = function() {
+            if(ceo_video.paused) {
+                ceo_video.play();
+            } else {
+                ceo_video.pause();
+            }
+        }
+        var md = document.getElementById("ceo_video");
+        md.addEventListener("ended", function() {
+            $("#ceo_video").remove()
+            $("#ceo_video_icon").show()
+            $('#ceo_video_auto').show();
+        })
+    }
+</script>
+</body>
+</html>

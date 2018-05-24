@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('../components/header') %>
+<body>
+<div class="contain">
+    <div class="topbox">
+        <div class="topmid">
+            <div class="topleft">
+                <a href="/index"><span class="toplogo"></span></a>确认订单 </div>
+            <span class="topRphone">服务热线：010-84997885</span>
+        </div>
+    </div>
+    <!--<div id="header"></div>-->
+    <div class="blackbg">
+        <div class="show_box">
+            <p>完善用户信息</p>
+            <input type="text" id="ordername" onkeypress="javascript:if(event.keyCode == 32)event.returnValue = false;" class="ordername" value="" maxlength="18" placeholder="请输入学生的姓名">
+            <img src="../assets/closeput.png" class="closeput">
+            <button class="sub_ordername">确  定</button>
+        </div>
+    </div>
+    <div class="orderbg">
+        <div class="ord_dybox">
+            <div class="ord_dytop">
+                <span class="ord_dyt1">课程名称</span>
+                <span class="ord_dyt2">课程信息</span>
+                <span class="ord_dyt3">价格</span>
+                <span class="ord_dyt3">优惠</span>
+                <!--<span class="ord_dyt3">小计</span>-->
+            </div>
+            <div class="ord_dybot">
+                <div class="ord_only">
+                    <label id="label1" for="radio1" data-id="1">
+                        <div class="only_one1 detleft">
+
+                        </div>
+                        <div class="only_one2 dettime">
+
+                        </div>
+                        <div class="only_one3 detyjmoney">
+
+                        </div>
+                        <div class="only_one4 detxjmoney">
+
+                        </div>
+                        <!--<div class="only_one5 detxjmoney">
+
+                        </div>-->
+                        <!--<div class="orderxz">
+                            <img class="" src="../assets/ic_selected@2x.png" alt="">
+                            <input type="radio" id="radio1" checked="checked" class="orderradio" name="order">
+                        </div>-->
+                    </label>
+                </div>
+                <!--<div class="ord_twotop"><span>春秋联报 减200元</span></div>
+                <div class="ord_two">
+                    <label id="label2" for="radio2" data-id="2">
+                    <div class="ord_twobox">
+                        <div class="ord_twoboxli">
+                            <div class="only_one1">
+                                <img src="../assets/banner1.png" class="ordimg">
+                                三年级 <span>2018春季直播课程</span> 共10讲
+                            </div>
+                            <div class="only_one2">
+                                03月10日-06月16日 每周五19:00-20:00
+                            </div>
+                            <div class="only_one3">
+                                399.00元
+                            </div>
+                        </div>
+                        <div class="ord_twoboxli">
+                            <div class="only_one1">
+                                <img src="../assets/banner1.png" class="ordimg">
+                                三年级 <span>2018春季直播课程</span> 共10讲
+                            </div>
+                            <div class="only_one2">
+                                03月10日-06月16日 每周五19:00-20:00
+                            </div>
+                            <div class="only_one3">
+                                399.00元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ord_twocount">
+                        399.00元
+                    </div>
+                    <div class="orderxz mart62">
+                        <img src="../assets/ic_normal@2x.png" alt="">
+                        <input type="radio" id="radio2" class="orderradio" name="order">
+                    </div>
+                    </label>
+                </div>-->
+            </div>
+            <div class="ord_jxjbtn">使用奖学金</div>
+            <div class="ord_jxjbot">
+                <ul class="ord_jxjul">
+                </ul>
+            </div>
+            <div class="ord_gobtn">
+                <p>商品金额：<span class=""></span></p>
+                <p>折扣信息：<span class=""></span></p>
+                <p>奖学金：<span class=""></span></p>
+                <p>合计：<span class=""></span></p>
+                <p>实付：<span class="lprice"></span></p>
+                <a href="javascript:void(0)" class="grade_bm ord_gofk">去付款</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<%- include('../components/footer') %>
+<script>
+    $(document).ready(function() {
+        var onlymon = onlymon2 = '';
+        var dbmon = dbmon2 = '';
+        var ships = []; //奖学金
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            if(r != null) return unescape(r[2]);
+            return null; //返回参数值
+        }
+        var goods_id = getUrlParam("goods_id")
+        var cook = getUrlParam("cook")
+        var lastPrice = 0.00; //最终价格
+        var good_price = 0.00; //商品价格
+        var datadetail = {
+            goods_id: goods_id
+        };
+        var rePricedata = {
+            cook: cook,
+            goods_id:goods_id,
+            my_scholarship_ids:null
+
+        };
+        //获取商品详情
+
+        //判断是否有姓名
+        var cookdata = {
+            cook: cook
+        }
+        var jxjdata = {
+            cook: cook,
+        }
+        ajax("http://order.limiketang.com/limi-math-web-v3/check-realname", cookdata, "GET").done(function(res) {
+            if(res.result != '1') {
+                $('.blackbg').css('display', 'block')
+            }
+        }).fail(function(err) {
+            alert("网络错误")
+            return false
+        });
+        //判断没有姓名写入姓名
+        $('.sub_ordername').on('click', function() {
+
+            var regname = /^[\u4E00-\u9FA5A-Za-z]+$/; //只能匹配没有
+            var ordername = $("#ordername").val();
+            if(ordername.length < 2 || ordername === null) { /* !!!!!*/
+                alert('学生姓名最少输入两个字符！')
+                return false;
+            }
+            if(!regname.test(ordername)){
+                alert('学生姓名只能包含汉字和英文字母');
+                return false;
+            }
+            var adnamedata = {
+                cook: cook,
+                realname: ordername,
+            }
+            ajax("http://order.limiketang.com/limi-math-web-v3/add-realname", adnamedata, "GET").done(function(res) {
+                if(res.result == 1) {
+                    $('.blackbg').css('display', 'none')
+                } else {
+                    alert('操作失败！')
+                }
+            }).fail(function(err) {
+                alert("网络错误")
+                return false
+            });
+        })
+
+        $("#ordername").bind('input propertychange', function() {
+            if($(this).val() != '') {
+                $(this).next('.closeput').show()
+            } else {
+                $(this).next('.closeput').hide()
+            }
+        });
+        $(".closeput").click(function() {
+            $(this).hide().prev("input").val('')
+        });
+        //我的奖学金
+        var ships = [];
+        ajax("http://order.limiketang.com/limi-math-web-v3/scholarship-my", cookdata, "GET").done(function(res) {
+            //					console.log(res)
+            if(res.result == 1) {
+                $('.ord_jxjbtn').removeClass("huijxj")
+                $(".ord_jxjbot").show()
+                var jxjli = '';
+//						res.data=[{
+//				            "my_scholarship_id": "1",
+//				            "amount": "100.00",
+//				            "start_time": "2018-03-12 01:35:08",
+//				            "end_time": "2018-03-22 01:35:08"
+//				        },{
+//				            "my_scholarship_id": "2",
+//				            "amount": "100.00",
+//				            "start_time": "2018-03-12 01:35:08",
+//				            "end_time": "2018-03-22 01:35:08"
+//				        },{
+//				            "my_scholarship_id": "3",
+//				            "amount": "100.00",
+//				            "start_time": "2018-03-12 01:35:08",
+//				            "end_time": "2018-03-22 01:35:08"
+//				        },{
+//				            "my_scholarship_id": "4",
+//				            "amount": "100.00",
+//				            "start_time": "2018-03-12 01:35:08",
+//				            "end_time": "2018-03-22 01:35:08"
+//				        },{
+//				            "my_scholarship_id": "5",
+//				            "amount": "100.00",
+//				            "start_time": "2018-03-12 01:35:08",
+//				            "end_time": "2018-03-22 01:35:08"
+//				        },{
+//				            "my_scholarship_id": "6",
+//				            "amount": "100.00",
+//				            "start_time": "2018-03-12 01:35:08",
+//				            "end_time": "2018-03-22 01:35:08"
+//				        }];
+//				        console.log(res.data)
+                for(var i = 0; i < res.data.length; i++) {
+                    if(i==0){
+                        jxjli = '<li data-amount='+res.data[i].amount+' data-id=' + res.data[i].my_scholarship_id + '><input type="checkbox" checked="true" name="checkbox" id="' + res.data[i].my_scholarship_id + '" value="' + res.data[i].my_scholarship_id + '" /><p class="ord_jxjp1">¥<span>' + res.data[i].amount + '</span></p><p class="ord_jxjp2">有效期至 ' + res.data[i].end_time + '</p><div class="ord_jxjnocheck ord_jxjcheck"> </div></li>'
+                        ships.push(res.data[i].my_scholarship_id)
+                        rePrice()
+                    }else{
+                        jxjli = '<li data-amount='+res.data[i].amount+' data-id=' + res.data[i].my_scholarship_id + '><input type="checkbox" name="checkbox" id="' + res.data[i].my_scholarship_id + '" value="' + res.data[i].my_scholarship_id + '" /><p class="ord_jxjp1">¥<span>' + res.data[i].amount + '</span></p><p class="ord_jxjp2">有效期至 ' + res.data[i].end_time + '</p><div class="ord_jxjnocheck"> </div></li>'
+                    }
+                    $('.ord_jxjul').append(jxjli)
+                }
+                //						<label for="la'+ res.data[i].my_scholarship_id +'"></label>
+                jxjBind()
+            } else {
+                $('.ord_jxjbtn').addClass("huijxj").html("暂无奖学金")
+                $(".ord_jxjbot").hide()
+            }
+        }).fail(function(err) {
+            alert("网络错误")
+            return false
+        });
+
+
+        //点击奖学金
+//				var usejxj = 0;
+        function jxjBind() {
+            $(".ord_jxjbot li").click(function() {
+                var index = $(this).index();
+                var x = $(".ord_jxjbot li").eq(index).children('input[type="checkbox"]').is(':checked') //是否选中
+//						var jxj_liprice = parseFloat($(this).find(".ord_jxjp1 span").html()); //当前奖学金
+                var jxj_id = $(this).children('input[type="checkbox"]').val(); //奖学金id
+                var jxj_amount = $(this).attr('data-amount'); //奖学金-金额
+
+                if(x == true) { //当前选中时执行
+                    $(".ord_jxjbot li").eq(index).children('input[type="checkbox"]').prop("checked", false)
+                    $(this).children(".ord_jxjnocheck").removeClass("ord_jxjcheck");
+                    ships.splice($.inArray(jxj_id, ships), 1);
+                    rePrice();
+//							lastPrice = lastPrice - parseFloat(jxj_amount);
+//							if(lastPrice > 0){
+//								$('.lprice').html(lastPrice) //绑定价格
+//							}else{
+//								$('.lprice').html('0.01')//绑定价格
+//							}
+//
+                } else { //当前没选中时执行
+                    $(".ord_jxjbot li").eq(index).children('input[type="checkbox"]').prop("checked", true)
+                    $(this).children(".ord_jxjnocheck").addClass("ord_jxjcheck");
+                    ships.push(jxj_id)
+                    rePrice();
+                }
+            })
+        }
+//				ajax("http://order.limiketang.com/limi-math-web-v3/get-goods", datadetail, "GET").done(function(res) {
+//					var details = res.data[0][0]
+//					var details1 ;
+//					if(res.data[0].goods_type == 2){
+//						details1 = res.data[0][1]
+//					}
+//					var detone = '<img src="' + details.bg_img_url + '" class="ordimg">'  + '<span>'+res.data[0].goods_market_name+'</span> ';
+//					var detleft = $('.detleft');
+//					detleft.append(detone);
+//					var detwo = details.class_season+'：'+details.first_class_time + '-' + details.last_class_time + ' ' + details.frequency + ' ' + details.freq_start + '-' + details.freq_end;
+//
+//					var dettime = $('.dettime');
+//					dettime.append(detwo);
+//					if(res.data[0].goods_type == 2){
+//						var detwo2 = '<br/>'+details1.class_season+'：'+details1.first_class_time + '-' + details1.last_class_time + ' ' + details1.frequency + ' ' + details1.freq_start + '-' + details1.freq_end;
+//						dettime.append(detwo2);
+//						dettime.css("line-height","30px");
+//					}
+//
+//					var price1 = res.data[0].goods_price_name;
+//					var price2 = res.data[0].goods_pay_price;
+//
+//
+//
+//				}).fail(function(err) {
+//					alert("网络错误");
+//					return false
+//				});
+        function rePrice () {
+            rePricedata.my_scholarship_ids = ships.toString();
+            ajax("http://order.limiketang.com/limi-math-web-v3/get-order-info", rePricedata, "GET").done(function(res) {
+                var rePdata = res.data[0];
+//						---
+
+                var details = res.data[0][0];
+                var details1 ;
+                if(res.data[0].goods_type == 2){
+                    details1 = res.data[0][1]
+                }
+                var detone = '<img src="' + details.bg_img_url + '" class="ordimg">'  + '<span>'+res.data[0].goods_market_name+'</span> ';
+                var detleft = $('.detleft');
+                detleft.html(detone)
+                var detwo = details.class_season+'：'+details.first_class_time + '-' + details.last_class_time + ' ' + details.frequency + ' ' + details.freq_start + '-' + details.freq_end;
+
+                var dettime = $('.dettime');
+                dettime.html(detwo);
+                if(res.data[0].goods_type == 2){
+                    var detwo2 = '<br/>'+details1.class_season+'：'+details1.first_class_time + '-' + details1.last_class_time + ' ' + details1.frequency + ' ' + details1.freq_start + '-' + details1.freq_end;
+                    dettime.html(detwo+detwo2)
+                    dettime.css("line-height","30px");
+                }
+
+//						var price1 = res.data[0].goods_price_name;
+//						var price2 = res.data[0].goods_pay_price;
+
+//						--
+                $('.detyjmoney').html('￥' + rePdata.goods_price_name )
+                $('.detxjmoney').html( rePdata.goods_coupon_name )
+                $('.ord_gobtn p').eq(0).html('商品金额：<span>￥'+rePdata.goods_pay_price+'</span>')
+                $('.ord_gobtn p').eq(1).html('折扣信息：<span>'+rePdata.student_savle+'</span>')
+                $('.ord_gobtn p').eq(2).html('奖学金：<span>- ￥'+rePdata.scholarship+'</span>')
+                $('.ord_gobtn p').eq(3).html('合计：<span>￥'+rePdata.goods_price+'</span>')
+
+                lastPrice = rePdata.goods_price;
+                $('.lprice').html("￥"+rePdata.goods_price) //绑定最后价格
+
+            }).fail(function(err) {
+                alert("网络错误")
+                return false
+            });
+        }
+        rePrice()
+
+        $(".grade_bm").click(function() {
+            //生成订单号
+            var bmdata = {
+                goods_id: goods_id,
+                cook: cook,
+                my_scholarship_ids: ships.toString()
+            }
+            ajax("http://order.limiketang.com/limi-math-web-v3/order-add", bmdata, "GET").done(function(res) {
+//						console.log(res)
+                if(res.result == 1) {
+
+                    if(res.data.username != null){
+                        location.href = "/auth/finish"
+                        localStorage.setItem("userName", res.data.username)
+                        localStorage.setItem("userPwd", res.data.pwd)
+                    }else{
+                        var order_id = res.data.order_id;
+                        var timeNum = res.data.timeNum;
+                        location.href = '/auth/pay/step2?order_id=' + order_id + "&cook=" + cook + '&goods_id=' + goods_id + "&timeNum=" + timeNum + "&money=" + lastPrice;
+                    }
+                }else{
+                    alert(res.desc)
+                }
+            }).fail(function(err) {
+                alert("网络错误")
+                return false
+            });
+
+        })
+
+    })
+</script>
+</body>
+</html>

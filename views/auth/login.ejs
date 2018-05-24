@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%- include('../components/header') %>
+<body>
+<div class="contain">
+    <div class="topbox">
+        <div class="topmid">
+            <div class="topleft">
+                <a href="../../index.html"><span class="toplogo"></span></a>验证手机号
+            </div>
+            <span class="topRphone">服务热线：010-84997885</span>
+        </div>
+    </div>
+    <div class="logminbg">
+        <div class="logincoment">
+            <div class="loginTp"><img src="../assets/login_logo@2x.png" class="loginTimg"></div>
+            <div class="tsp"><input type="text" class="reginput logphone" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/,'');}).call(this)" maxlength="11" placeholder="请输入您的手机号" /><img src="../assets/closeput.png" class="closeput"></div>
+            <div class="tsp">
+                <input type="text" class="reginput2 logmes" onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9]+/,'');}).call(this)" maxlength="4" placeholder="短信验证码" /><img src="../assets/closeput.png" class="closeput closeput2">
+                <a class="zcgetyzm">获取验证码</a>
+                <p id="timedown"><span>60</span>s</p>
+            </div>
+            <label class="xieyi"><input type="checkbox" id="xyCheck" checked="checked">我已阅读并同意<a href="agreement.html" target="_blank">《狸米数学用户协议》</a></label>
+            <p class="ordlognext">
+                <a href="javascript:;" class="grade_bm log_bm">下一步</a>
+            </p>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<%- include('../components/footer') %>
+<script>
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return unescape(r[2]);
+        return null;
+    }
+    var goods_id = getUrlParam("goods_id")
+
+    $(".zcgetyzm").on("click", function() {
+        var e = /^1[3,4,5,7,8,9]\d{9}$/;
+        var userPhone = $(".logphone").val()
+        $("#timedown span").html("60");
+        if(e.test(userPhone)) {
+            $(".zcgetyzm").hide();
+            $("#timedown").show();
+            var timecount = 60
+            var timer = setInterval(function() {
+                timecount--
+                if(timecount < 0) {
+                    clearInterval(timer)
+                    $("#timedown").hide();
+                    $(".zcgetyzm").show();
+                    $(".zcgetyzm").html("重新发送");
+                }
+                $("#timedown span").html(timecount)
+            }, 1000)
+            getCode(userPhone)
+        } else {
+            alert("请输入正确的手机号")
+        }
+    })
+    $(".xieyi").on("click", function() {
+        var xyCheck = $("#xyCheck").is(":checked");
+        if(xyCheck) {
+            $(".grade_bm").css("background", "#ea5521")
+        } else {
+            $(".grade_bm").css("background", "#ccc")
+        }
+    })
+
+    function getCode(userPhone) {
+        var senddata = {
+            ig: 'true',
+            phonenum: userPhone,
+            type: 5,
+            version: "2.0"
+        }
+        ajax("http://api-sso.limixuexi.com/verifycode-login/send-login-verifycode", senddata, "GET").done(function(res) {
+            console.log("发送成功")
+        }).fail(function(err) {
+            alert("网络错误");
+        });
+    }
+    $(".grade_bm").on("click", function() {
+        var myCode = $(".logmes").val()
+        var userPhone = $(".logphone").val()
+        var xyCheck = $("#xyCheck").is(":checked");
+        if((myCode.length == 4) && (userPhone.length == 11) && xyCheck) {
+            var logindata = {
+                ig: 'true',
+                phonenum: userPhone,
+                verifycode: myCode,
+                type: 5,
+                version: "v2.0",
+                call: "limixuexi",
+                from: "official"
+            }
+            ajax("http://api-sso.limixuexi.com/verifycode-login/login", logindata, "GET").done(function(res) {
+                if(res.code == 1000) {
+                    var cook = res.data.cookie;
+                    var uid = res.data.uid;
+
+                    var in30Minutes = 1 / 48;
+                    Cookies.set('phone', userPhone, {
+                        expires: in30Minutes
+                    });
+                    Cookies.set('cook', cook, {
+                        expires: in30Minutes
+                    });
+                    sessionStorage.setItem('key', '123')
+
+                    if(Cookies.get('phone') && Cookies.get('cook')) {
+                        location.href = "/auth/pay/step1?goods_id=" + goods_id + "&cook=" + cook
+                    } else {
+                        location.href = "/auth/login?goods_id=" + goods_id
+                    }
+
+                } else {
+                    alert("验证码有误，请重新输入")
+                }
+            }).fail(function(err) {
+                alert("网络错误");
+                return false
+            });
+        } else {
+            if(xyCheck) {
+                if(userPhone.length != 11) {
+                    alert("请输入正确的手机号")
+                } else if(myCode.length != 4) {
+                    alert("请输入正确的验证码")
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
